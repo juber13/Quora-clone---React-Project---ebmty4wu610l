@@ -1,0 +1,18 @@
+.card{
+    width: 800px !important;
+    background:red;
+}
+
+.form-group{
+    margin: 1rem;
+}
+
+h5{
+    position: relative;
+    margin-left:1rem;
+    color: red;
+}
+
+.sign-up{
+    border-right: 1px solid #ddd;
+}
