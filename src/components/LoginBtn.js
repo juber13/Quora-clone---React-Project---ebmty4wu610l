@@ -1,9 +1,11 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom';
 function LoginBtn() {
   return (
     <div className=''>
-        <button className='btn btn-danger'>Login</button>
+        <Link to="/login">
+          <button className='btn text-danger bg-white'>Login</button>
+        </Link>
     </div>
   )
 }

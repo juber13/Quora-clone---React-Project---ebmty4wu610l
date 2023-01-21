@@ -1,24 +1,23 @@
 import React from 'react'
-import AddAnswer from './AddAnswer'
-import AddQuestion from './AddQuestion'
+import AddAnswer from './AnswerBtn'
+import AddQuestion from './QuestionBtn'
 import LoginBtn from './LoginBtn'
 import Logo from './Logo'
 import SearchBar from './SearchBar'
-import Answers from './Answers'
-import Question from './Question'
+import Answers from './AnswersContainer'
+import Question from './QuestionContainer'
 import '../styles/App.css';
+
 function Welcome() {
   return (
-    <div className='container  mt-5'>
-     <h2 className='text-center mt-100 text-danger'>Quora</h2>
-    <div className='' style={{display:"flex" , justifyContent:"space-around" , width:"650px" , margin:"auto"}}>
+     <div className='container  mt-5'>
+     <div className='' style={{display:"flex" , justifyContent:"space-around" , width:"650px" , margin:"auto"}}>
         <Logo/>
         <SearchBar/>
-        <AddQuestion />
         <AddAnswer/>
-        <LoginBtn/>
+        <AddQuestion />
     </div>
-    <div className='flex-items row text-center h-100 d-flex justify-content-center border' style={{maxWidth:"900px" , margin:"0 auto"}}>
+    <div className='flex-items row text-center h-100 d-flex justify-content-center' style={{maxWidth:"900px" , margin:"4px auto"}}>
       <Answers/>
       <Question/>
     </div>
