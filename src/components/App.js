@@ -5,6 +5,7 @@ import { BrowserRouter , Routes , Route } from 'react-router-dom';
 
 import '../styles/App.css';
 import Login from './LoginPage'
+import SignUp from './SignUp';
 import AddAnswerPage from './AddAnswerPage';
 import AddQuestion from './AddQuestionPage';
 import Welcome from './Welcome';
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/add-question" element={<AddQuestion/>} />
           <Route path="/add-answer" element={<AddAnswerPage />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/sign-up' element={<SignUp />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

@@ -1,47 +1,36 @@
 import React,{useState} from "react";
+import '../styles/login.css';
+import {Link} from 'react-router-dom'
 
-function SignUp() {
-  const [name , setName] = useState();
-  const [email , setEmail] = useState();
-  const [password , setPassword] = useState();
-
-  function handleSubmit(e){
-   e.preventDefault();
-   localStorage.setItem('name' , name);
-   localStorage.setItem('email' , email);
-   localStorage.setItem('password' , password);
-  }
-
-
+function SignUp(props) {
+ 
   return (
-    <form className="my-3" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <input type="text" placeholder="Name" className="form-control" onChange={(e) => e.target.value == "" ? null : setName(e.target.value)}/>
-      </div>
-      <div className="form-group">
-        <input type="email" placeholder="Email" className="form-control" onChange={(e) => e.target.value == "" ? null : setEmail(e.target.value)}/>
-      </div>
-      <div className="form-group">
-        <input
-          type="password"
-          placeholder="Password"
-          className="form-control"
-          onChange={(e) => e.target.value == "" ? null : setPassword(e.target.value)}/>
-      </div>
-      <div className="form-group">
-        <input
-          type="password"
-          placeholder="Confirm-password"
-          className="form-control"
-        />
-      </div>
+     <div className="container my-5 card">
+     <div className="heading text-center">
+        <h2 style={{color:"red"}}>Quora</h2>
+        <p>A place to share knowledge and better understand the world</p>
+     </div>
 
-      <div className="form-group">
-        <button type="submit" className="btn btn-success">
-          Sign Up
-        </button>
-      </div>
-    </form>
+     <div className="login-container container my-5  row">
+       <div className="col-md-12 pt-3">
+         <h5>Sign Up..</h5>
+         <form className="my-3" onSubmit={props.handleSummit} autoComplete>
+          <div className="form-group">
+                <input type="text"  required placeholder="UserName" className="form-control" onChange={e => props.email(e.target.value)}/>
+            </div>
+            <div className="form-group">
+                <input type="email"  required placeholder="Email" className="form-control" onChange={e => props.email(e.target.value)}/>
+            </div>
+            <div className="form-group">
+                <input type="password"  required placeholder="Password" className="form-control" onChange={e => props.password(e.target.value)}/>
+            </div>
+            <div className="form-group">
+                <button type="submit" className="btn btn-primary">Sign Up</button>
+            </div>
+            </form>
+       </div>
+     </div>
+    </div>
   );
 }
 

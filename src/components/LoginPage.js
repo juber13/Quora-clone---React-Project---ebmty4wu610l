@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import '../styles/login.css';
-import SignUp from "./SignUp";
+import {Link} from 'react-router-dom'
 
 function Login(props) {
  
@@ -12,11 +12,7 @@ function Login(props) {
      </div>
 
      <div className="login-container container my-5  row">
-       <div className="col-md-6 pt-3 sign-up">
-          <h5>Sign Up</h5>
-          <SignUp />
-       </div>
-       <div className="col-md-6 pt-3">
+       <div className="col-md-12 pt-3">
          <h5>Login</h5>
          <form className="my-3" onSubmit={props.handleSummit} autoComplete>
             <div className="form-group">
@@ -27,6 +23,9 @@ function Login(props) {
             </div>
             <div className="form-group">
                 <button type="submit" className="btn btn-primary">Login</button>
+                <Link to="/sign-up">
+                  <h6 className="text-primary mt-3 cursor-pointer" role="button">Sign Up Here..</h6>
+                </Link>
             </div>
             </form>
        </div>
