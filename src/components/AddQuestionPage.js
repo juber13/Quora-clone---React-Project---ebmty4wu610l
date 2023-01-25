@@ -13,27 +13,33 @@ function AddQuestion() {
   const [inputValue , setValue] = useState();
     
   const addQuestion = () => {
+    if(inputValue === "") {
+      alert("Please Add Question");
+      return;
+    }else{
       setQuestion((prev) => {
         return [...prev , {text : inputValue , answerd : false}];
       })    
-      setValue("");
     }
-
+    
+    setValue("");
+  }
+    
     useEffect(() => {
       localStorage.setItem('question' , JSON.stringify(questions))
     },[questions]);
 
   return (
     <div className='container'>
-     <h2>Answer Question:</h2>
+     <h2>Add Question:</h2>
     <div className="mb-3">
       <label for="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-      <textarea  value={inputValue} className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={(e) => setValue(e.target.value)}></textarea>
-    </div>
+      <textarea  required value={inputValue} className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={(e) => setValue(e.target.value)}></textarea>
     <Link to="/main">
       <button className='btn btn-danger m-2'>Cancel</button>
     </Link>
     <button className='btn btn-danger' onClick={addQuestion}>Add Question</button>
+   </div>
   </div>
   )
 }

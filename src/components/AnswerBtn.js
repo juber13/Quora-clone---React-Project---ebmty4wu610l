@@ -1,11 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 function AddAnswer() {
+  const navigate = useNavigate();
+  const checkDataInLocalStorage = () =>{
+    if(localStorage.getItem('question')){
+       navigate('/add-answer');
+    }else{
+      alert("Please add question first");
+      return;
+    }
+  }
   return (
     <div className=''>
-        <Link to='/add-answer'>
-          <button className='btn btn-danger'>Add Answer</button>
-        </Link>
+          <button className='btn btn-danger' onClick={checkDataInLocalStorage}>Add Answer</button>
     </div>
   )
 }

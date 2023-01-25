@@ -16,16 +16,17 @@ function SignUp() {
  const [password , setPassword] = useState();
  const [userDate , setUserData] = useState(getUserDate());
  const goToLoginPage = () => {
-   navigate('/');
- }
+   navigate("/");
+}
 
- function handleSignUp(e){
-   e.preventDefault();
-   setUserData({userName , email , password});
-   setUserName("");
-   setUserEmail("");
-   setPassword("");
+function handleSignUp(e){
+  e.preventDefault();
+  setUserData({userName , email , password});
+  setUserName("");
+  setUserEmail("");
+  setPassword("");
   //  goToLoginPage();
+    // navigate('/');
  }
 
  useEffect(() => {

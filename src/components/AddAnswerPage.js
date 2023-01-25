@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
 import { useEffect } from 'react';
 import {Link} from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 
 function getQuestionFromLocalStorage(){
   const items = localStorage.getItem('question');
@@ -19,17 +19,25 @@ function AddAnswerPage() {
   const [questions , setQuestion] = useState(getQuestionFromLocalStorage());
   const [questionedAndAnswer , setQuestionAndAnswer] = useState(getQuestionAndAnswerFromLocalStorage());
   const [SelectedQuestion , setSelectedQuestion] = useState();
-  const [inputVal , setInputval] = useState();
+  const [inputVal , setInputval] = useState("");
+  const navigate = useNavigate();
+
 
   function addQuestion(){
-    setQuestionAndAnswer([...questionedAndAnswer , {
+    if(inputVal === "") {
+      alert("Please Add Answer");
+      return;
+    }else{
+
+      setQuestionAndAnswer([...questionedAndAnswer , {
         id: Math.floor(Math.random() + 1 * 100),
-        answerdBy : "karan johar",
-        questionedBy : "zuber",
+        answerdBy : JSON.parse(localStorage.getItem('userData')).userName,
+        questionedBy : questionedAndAnswer.answerdBy,
         question : SelectedQuestion,
         answer : inputVal,
-       }]
-     )
+      }]
+      )
+    }
 
      setInputval("");
   }
@@ -55,7 +63,7 @@ function AddAnswerPage() {
       </div>
       <div className='col-5  pt-10'>
       <label for="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-      <textarea value={inputVal} onChange={(e) => setInputval(e.target.value)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="3"></textarea>  
+      <textarea required value={inputVal} onChange={(e) => setInputval(e.target.value)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="3"></textarea>  
       <Link to='/main'>
       <button className='btn btn-danger m-2'>Cancel</button>
       </Link>

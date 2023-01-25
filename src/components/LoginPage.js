@@ -21,7 +21,8 @@ function Login(props) {
     if(email == userData.email && password == userData.password){
       navigate('/main');
     }else{
-      alert("plese sign up first");
+      alert("please sign up first");
+      return;
     }
  }
 
