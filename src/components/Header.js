@@ -7,7 +7,7 @@ function Header() {
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-danger">
     <div className="container-fluid">
         <a className="navbar-brand text-white" href="#">Quora Clone</a>
-       <LoginBtn/>
+       {/* <LoginBtn/> */}
   </div>
 </nav>
   )
