@@ -52,18 +52,26 @@ function AddAnswerPage() {
     setSelectedQuestion(e.target.innerHTML);
   }
 
+  const container = {
+    backgroundColor:"#ddd",
+    paddingTop : "10px",
+    display : "flex",
+    alignItems:"center",
+    justifyContent : "space-between"
+  }
+
   return (
-    <div className='container mt-5' style={{backgroundColor : "#ddd"}}>
+    <div className='container mt-5' style={container}>
      <div className="row">
       <div className='col-5  pt-10'>
-        <h5>Select Questions</h5>
+        <h5 className='mt-10 text-danger' style={{marginLeft:"2rem"}}>Select Questions</h5>
         <ul>
           {questions.map((ques ,  index) => <li onClick={selectQuestion}key={index}>{ques.text}</li>)}
         </ul>
       </div>
-      <div className='col-5  pt-10'>
-      <label for="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-      <textarea required value={inputVal} onChange={(e) => setInputval(e.target.value)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="3"></textarea>  
+      <div className='col-5' >
+      <label for="exampleFormControlTextarea1" className="form-label text-danger">Write Your Answer Here!!</label>
+      <textarea required value={inputVal} onChange={(e) => setInputval(e.target.value)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="10" cols="9"></textarea>  
       <Link to='/main'>
       <button className='btn btn-danger m-2'>Cancel</button>
       </Link>
