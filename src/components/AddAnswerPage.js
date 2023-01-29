@@ -55,9 +55,6 @@ function AddAnswerPage() {
   const container = {
     backgroundColor:"#ddd",
     paddingTop : "10px",
-    display : "flex",
-    alignItems:"center",
-    justifyContent : "space-between"
   }
 
   return (

@@ -8,7 +8,7 @@ module.exports = {
         filename: "index_bundle.js",
     },
     devServer: {
-        historyApiFallback: {index : "index.html"}
+        historyApiFallback: true
     },
     module: {
         rules: [

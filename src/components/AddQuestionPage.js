@@ -1,6 +1,7 @@
 import React,{useState , useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import Answers from './AnswersContainer';
+import { useNavigate } from 'react-router-dom';
 
 function getFromLocalStorage(){
   const items = localStorage.getItem('question');
@@ -11,6 +12,8 @@ function getFromLocalStorage(){
 function AddQuestion() {
   const [questions , setQuestion] = useState(getFromLocalStorage());
   const [inputValue , setValue] = useState();
+  const [isQuestionAdded , setQuestionAdded] = useState(false);
+  const navigate = useNavigate();
     
   const addQuestion = () => {
     if(inputValue === "") {
@@ -18,9 +21,9 @@ function AddQuestion() {
       return;
     }else{
       setQuestion((prev) => {
-        return [...prev , {text : inputValue , answerd : false}];
-      })    
-    }
+        return [...prev , {text : inputValue , answerd : false}]
+        })    
+      }
     
     setValue("");
   }

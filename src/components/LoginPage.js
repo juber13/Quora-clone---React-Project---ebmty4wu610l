@@ -1,7 +1,6 @@
 import React,{useState} from "react";
-import '../styles/login.css';
-// import {Link} from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import '../styles/Login.css';
 
 function getUserDate(){
   const userDate = localStorage.getItem('userData');
@@ -9,47 +8,52 @@ function getUserDate(){
   else return [];
 }
 
-function Login(props) {
+
+function Login({setLogged}) {
   const navigate = useNavigate();
-  const goToSignUpPage = () => navigate('/sign-up');
-  const [email , setEmail] = useState();
-  const [password , setPassword] = useState();
+
+  const [email , setEmail] = useState("");
+  const [password , setPassword] = useState("");
   const [userData , setUserData] = useState(getUserDate());
 
   function handleLogin(e){
     e.preventDefault();
     if(email == userData.email && password == userData.password){
-      navigate('/main');
+      setLogged(true);
+      navigate('/main')
     }else{
       alert("please sign up first");
       return;
     }
  }
 
+ const style = {
+   
+ }
+
   return (
-     <div className="container my-5 card">
+     <div className="container card">
      <div className="heading text-center">
-        <h2 style={{color:"red"}}>Quora</h2>
-        <p>A place to share knowledge and better understand the world</p>
+        <h1  className="text-danger"style={{fontFamily :"Anton" , letterSpacing : "1px"}}>Quora</h1>
+        <p style={{}}>A place to share knowledge and better understand the world</p>
      </div>
 
      <div className="login-container container my-5  row">
        <div className="col-md-12 pt-3">
          <h5>Login</h5>
-         <form className="my-3" onSubmit={handleLogin} autoComplete>
+         <form className="my-3" onSubmit={handleLogin} autoComplete="off">
             <div className="form-group">
-                <input type="email"  required placeholder="Email" className="form-control"  value={email} onChange={e => setEmail(e.target.value)}/>
+                <input value={email} type="email"  required placeholder="Email" className="form-control"   onChange={e => setEmail(e.target.value)}/>
             </div>
             <div className="form-group">
-                <input type="password"  required placeholder="Password" className="form-control" value={password} onChange={e => setPassword(e.target.value)}/>
+                <input value={password} type="password"  required placeholder="Password" className="form-control"  onChange={e => setPassword(e.target.value)}/>
             </div>
             <div className="form-group">
                 <button type="submit" className="btn btn-primary">Login</button>
-                {/* <Link to="/sign-up"> */}
-                  <h6 className="text-primary mt-3 cursor-pointer" role="button" onClick={goToSignUpPage}>Sign Up Here..</h6>
-                {/* </Link> */}
             </div>
             </form>
+            <span role="button" className="text-primary cursor-pointer" onClick={() =>  navigate('/')}>Sign Up Here..</span>
+
        </div>
      </div>
     </div>
