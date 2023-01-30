@@ -20,6 +20,7 @@ function AddAnswerPage() {
   const [questionedAndAnswer , setQuestionAndAnswer] = useState(getQuestionAndAnswerFromLocalStorage());
   const [SelectedQuestion , setSelectedQuestion] = useState();
   const [inputVal , setInputval] = useState("");
+  const [select , setSelect] = useState([]);
   const navigate = useNavigate();
 
 
@@ -46,11 +47,24 @@ function AddAnswerPage() {
     localStorage.setItem('questiond' , JSON.stringify(questionedAndAnswer));
   },[questionedAndAnswer])
 
+  
+  const updateQuestion = (index) => {
+    const items = getQuestionFromLocalStorage();
+    for(let i = 0; i < items.length; i++){
+       if(i == index){
+        items[i].status = true;
+       }
+    }
 
-
-  const selectQuestion = (e) => {
-    setSelectedQuestion(e.target.innerHTML);
+    setQuestion((prev) => [...prev , items]);
   }
+  
+  useEffect(() => {
+    localStorage.setItem('question' , JSON.stringify(questions));
+  },[questions])
+
+
+
 
   const container = {
     backgroundColor:"#ddd",
@@ -63,12 +77,12 @@ function AddAnswerPage() {
       <div className='col-5  pt-10'>
         <h5 className='mt-10 text-danger' style={{marginLeft:"2rem"}}>Select Questions</h5>
         <ul>
-          {questions.map((ques ,  index) => <li onClick={selectQuestion}key={index}>{ques.text}</li>)}
+          {questions.map((ques ,  index) => <li onClick={() => updateQuestion(index)}key={index}>{ques.text}</li>)}
         </ul>
       </div>
       <div className='col-5' >
       <label for="exampleFormControlTextarea1" className="form-label text-danger">Write Your Answer Here!!</label>
-      <textarea required value={inputVal} onChange={(e) => setInputval(e.target.value)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="10" cols="9"></textarea>  
+      <textarea required value={inputVal} onChange={() => selectQuestion(index)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="10" cols="9"></textarea>  
       <Link to='/'>
       <button className='btn btn-danger m-2'>Cancel</button>
       </Link>

@@ -21,15 +21,15 @@ function AddQuestion() {
       return;
     }else{
       setQuestion((prev) => {
-        return [...prev , {text : inputValue , answerd : false}]
+        return [...prev , {text : inputValue , status : false}]
         })    
       }
     
     setValue("");
   }
-    
-    useEffect(() => {
-      localStorage.setItem('question' , JSON.stringify(questions))
+  
+  useEffect(() => {
+    localStorage.setItem('question' , JSON.stringify(questions))
     },[questions]);
 
   return (
