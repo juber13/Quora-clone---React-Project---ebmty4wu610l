@@ -1,5 +1,6 @@
-import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React,{useEffect, useState} from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import '../styles/Login.css'
 
 function getUserDate(){
   const userDate = localStorage.getItem('userData');
@@ -22,12 +23,12 @@ function Login(props) {
       if(userData.email == email && userData.password === password){
          localStorage.setItem("authenticated" , true);
          navigate('/');
-      }else{
-        alert("please sign up first");
-        return;
+        }else{
+          alert("please sign up first");
+          return;
+        }
       }
-    }
-
+ 
  const style = {
   display : 'flex',
   alignItems:"center",

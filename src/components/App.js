@@ -24,7 +24,12 @@ const App = () => {
   const [password , setPassword] = useState();
   const navigate = useNavigate();
   const [authenticated, setauthenticated] = useState(localStorage.getItem('authenticated'));
-
+   
+  useEffect(() => {    
+    if(authenticated) navigate('/')
+    else navigate('/login')
+  },[])
+    
   return (
     <div id="main">
       <Routes>

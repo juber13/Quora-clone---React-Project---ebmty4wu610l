@@ -23,8 +23,11 @@ function handleSignUp(e){
   }
     setUserData({userName , email , password});
     setAuthenticated(true);
-    <Navigate replace to={'/login'}/>;
   }
+
+  useEffect(() => {
+    if(authenticated) navigate('/login');
+  })
   
   useEffect(() => {
     localStorage.setItem('userData' , JSON.stringify(userData));
