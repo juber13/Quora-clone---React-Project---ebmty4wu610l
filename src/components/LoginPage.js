@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import '../styles/Login.css'
+import '../styles/login.css'
 
 function getUserDate(){
   const userDate = localStorage.getItem('userData');
