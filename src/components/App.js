@@ -14,7 +14,6 @@ import Header from './Header';
 import Footer from './Footer';
 import LoginBtn from './LoginBtn';
 import NotFound from './NotFound';
-import Data from './Data'
 
 // const hasUserLoggedIn  = JSON.parse(localStorage.getItem('userData')) ? true :  false;
 

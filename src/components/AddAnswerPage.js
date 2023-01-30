@@ -69,7 +69,7 @@ function AddAnswerPage() {
       <div className='col-5' >
       <label for="exampleFormControlTextarea1" className="form-label text-danger">Write Your Answer Here!!</label>
       <textarea required value={inputVal} onChange={(e) => setInputval(e.target.value)} className="form-control" placeholder={SelectedQuestion} id="exampleFormControlTextarea1" rows="10" cols="9"></textarea>  
-      <Link to='/main'>
+      <Link to='/'>
       <button className='btn btn-danger m-2'>Cancel</button>
       </Link>
       <button className='btn btn-danger' onClick={addQuestion}>Add Answer</button>

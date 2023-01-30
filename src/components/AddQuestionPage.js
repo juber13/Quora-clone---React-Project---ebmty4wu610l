@@ -38,7 +38,7 @@ function AddQuestion() {
     <div className="mb-3">
       <label for="exampleFormControlTextarea1" className="form-label">Write Your Question Here!!!</label>
       <textarea  required value={inputValue} className="form-control" id="exampleFormControlTextarea1" rows="13" cols="10" onChange={(e) => setValue(e.target.value)}></textarea>
-    <Link to="/main">
+    <Link to="/">
       <button className='btn btn-danger m-2'>Cancel</button>
     </Link>
     <button className='btn btn-danger' onClick={addQuestion}>Add Question</button>
