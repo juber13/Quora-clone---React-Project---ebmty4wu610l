@@ -1,5 +1,5 @@
 import React,{useState , useEffect} from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 function getFromLocalStorage(){
   const data = localStorage.getItem('userData');
@@ -13,25 +13,22 @@ function SignUp(props) {
  const [email , setUserEmail] = useState("");
  const [password , setPassword] = useState("");
  const [userData , setUserData] = useState(getFromLocalStorage());
+ const [authenticated , setAuthenticated] = useState(false);
  
 function handleSignUp(e){
   e.preventDefault();
   if(userName  == "" || email == "" || password == ""){
     alert("Plese Enter values");
     return;
-  }else{
-    setUserData({userName , email , password});
-    // props.setLogged(true);/
   }
-
-  // if(userData){
-  //   navigate('/login');
-  // }
+    setUserData({userName , email , password});
+    setAuthenticated(true);
+    <Navigate replace to={'/login'}/>;
+  }
   
-}
-
-useEffect(() => {
-  localStorage.setItem('userData' , JSON.stringify(userData));
+  useEffect(() => {
+    localStorage.setItem('userData' , JSON.stringify(userData));
+  // localStorage.setItem('authenticated' , null);
  },[userData])
 
  const style = {
@@ -39,9 +36,6 @@ useEffect(() => {
   alignItems:"center",
   justifyContent : "center",
 }
-
- 
-
   return (
      <div className="container my-5 card" style={style}>
      <div className="heading text-center">

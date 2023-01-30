@@ -14,8 +14,8 @@ function Answers() {
     <div className='col-sm-5 bg-light m-2'>
     <h2>Answers</h2>
     <div className='answer-container'>
-      {questiond.map((data) => {
-        return <div className='content bg-white'>
+      {questiond.map((data , index) => {
+        return <div className='content bg-white' key={index}>
         <img src="" alt="" />
         <h5>{data.answerdBy}</h5>
         <h6>{data.question}</h6>

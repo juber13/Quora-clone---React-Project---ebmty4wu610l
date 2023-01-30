@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Data extends Component {
   render() {
     return (
-      <div>Data</div>
+      <h1>Welcome to the dashboad</h1>
     )
   }
 }
