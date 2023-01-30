@@ -1,13 +1,18 @@
 import React,{useState , useEffect} from "react";
-import '../styles/Login.css';
 import { useNavigate, useParams } from "react-router-dom";
 
-function SignUp({setLogged}) {
+function getFromLocalStorage(){
+  const data = localStorage.getItem('userData');
+  if(data)  return JSON.parse(data);
+  else return [];
+}
+
+function SignUp(props) {
  const navigate = useNavigate();
  const [userName , setUserName] = useState("");
  const [email , setUserEmail] = useState("");
  const [password , setPassword] = useState("");
- const [userData , setUserData] = useState([]);
+ const [userData , setUserData] = useState(getFromLocalStorage());
  
 function handleSignUp(e){
   e.preventDefault();
@@ -16,20 +21,29 @@ function handleSignUp(e){
     return;
   }else{
     setUserData({userName , email , password});
-    localStorage.setItem('userData' , JSON.stringify(userData));
-    setLogged(true);
+    // props.setLogged(true);/
   }
 
-  // localStorage.setItem('userToken' , Math.random() * 100);
+  // if(userData){
+  //   navigate('/login');
+  // }
+  
 }
 
-// useEffect(() => {
-//  },[userData])
+useEffect(() => {
+  localStorage.setItem('userData' , JSON.stringify(userData));
+ },[userData])
+
+ const style = {
+  display : 'flex',
+  alignItems:"center",
+  justifyContent : "center",
+}
 
  
 
   return (
-     <div className="container my-5 card">
+     <div className="container my-5 card" style={style}>
      <div className="heading text-center">
         <h2 style={{fontFamily :"Anton" , letterSpacing : "1px"}} className="text-danger">Quora</h2>
         <p>A place to share knowledge and better understand the world</p>

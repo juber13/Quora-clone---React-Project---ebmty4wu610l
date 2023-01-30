@@ -9,35 +9,38 @@ function getUserDate(){
 }
 
 
-function Login({setLogged}) {
+function Login(props) {
   const navigate = useNavigate();
 
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
-  const [userData , setUserData] = useState(getUserDate());
+  const [userData , setUserData] = useState(getUserDate());  
+  const [authenticated , setAuthenticated] = useState(localStorage.getItem('userData') || false);
+
 
   function handleLogin(e){
     e.preventDefault();
-    if(email == userData.email && password == userData.password){
-      setLogged(true);
-      navigate('/main')
-    }else{
-      alert("please sign up first");
-      return;
+      if(userData.email == email && userData.password === password){
+         localStorage.setItem("authenticated" , true);
+         navigate('/');
+      }else{
+        alert("please sign up first");
+        return;
+      }
     }
- }
 
  const style = {
-   
- }
+  display : 'flex',
+  alignItems:"center",
+  justifyContent : "center",
+}
 
   return (
-     <div className="container card">
+     <div className="container card" style={style}>
      <div className="heading text-center">
         <h1  className="text-danger"style={{fontFamily :"Anton" , letterSpacing : "1px"}}>Quora</h1>
         <p style={{}}>A place to share knowledge and better understand the world</p>
      </div>
-
      <div className="login-container container my-5  row">
        <div className="col-md-12 pt-3">
          <h5>Login</h5>
@@ -52,7 +55,7 @@ function Login({setLogged}) {
                 <button type="submit" className="btn btn-primary">Login</button>
             </div>
             </form>
-            <span role="button" className="text-primary cursor-pointer" onClick={() =>  navigate('/')}>Sign Up Here..</span>
+            <span role="button" className="text-primary cursor-pointer" onClick={() =>  navigate('/register')}>Sign Up Here..</span>
 
        </div>
      </div>

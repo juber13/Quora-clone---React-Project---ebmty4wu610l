@@ -14,17 +14,29 @@ import Footer from './Footer';
 import LoginBtn from './LoginBtn';
 import NotFound from './NotFound';
 
+// const hasUserLoggedIn  = JSON.parse(localStorage.getItem('userData')) ? true :  false;
+
+
 const App = () => {
   const [email , setEmail] = useState();
   const [password , setPassword] = useState();
-  const [logged , setLogged] = useState(false);
+  const [authenticated , setAuthenticated] = useState(null);
   const navigate = useNavigate();
+
+useEffect(() => {
+  const loggedInUser = localStorage.getItem('authenticated');
+  if(loggedInUser){
+    setAuthenticated(loggedInUser);
+  }
+},[]);
+
 
   return (
     <div id="main">
        <Routes>
-          <Route path= "/" element={logged  ? <Welcome/> : <SignUp setLogged={setLogged}/>}/>
-          <Route path="/login" element={<Login />} />
+          <Route path= "/" element={<Welcome  setAuthenticated={setAuthenticated}/>}/>
+          <Route path= "/login" element={<Login  setAuthenticated={setAuthenticated}/>}/>
+          <Route path="/register" element={<SignUp  setAuthenticated={setAuthenticated}/>} />
           <Route path="/add-question" element={<AddQuestion/>} />
           <Route path="/add-answer" element={<AddAnswerPage />} />
           <Route path='*' element={<NotFound />} />

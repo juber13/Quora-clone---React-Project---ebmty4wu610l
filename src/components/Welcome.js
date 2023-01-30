@@ -6,6 +6,7 @@ import Logo from './Logo'
 import SearchBar from './SearchBar'
 import Answers from './AnswersContainer'
 import Question from './QuestionContainer'
+import '../styles/App.css';
 import Header from './Header'
 import Footer from './Footer'
 function Welcome() {

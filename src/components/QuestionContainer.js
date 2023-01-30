@@ -13,7 +13,7 @@ function Question() {
      <h2>Question List</h2>
      <div className='question-list'>
         <ul className=''>
-          {questions.map((ques , index) => <li className="text-success" key={index}>{ques.text} ?</li>)}
+          {questions.map((ques , index) => <li className="text-success" key={index}>{index + 1} : {ques.text} ?</li>)}
         </ul>
     </div>
     </div>
