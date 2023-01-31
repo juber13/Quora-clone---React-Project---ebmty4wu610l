@@ -10,8 +10,6 @@ import SignUp from './SignUp';
 import AddAnswerPage from './AddAnswerPage';
 import AddQuestion from './AddQuestionPage';
 import Welcome from './Welcome';
-import Header from './Header';
-import Footer from './Footer';
 import LoginBtn from './LoginBtn';
 import NotFound from './NotFound';
 

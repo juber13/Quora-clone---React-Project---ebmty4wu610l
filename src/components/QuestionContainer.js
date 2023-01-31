@@ -12,10 +12,12 @@ function Question() {
     <div className='col-sm-6 bg-light m-2 py-5'>
      <h4>Question List</h4>
      <div className='question-list'>
+      { questions.length > 0 ? 
         <ul className=''>
           {questions.map((ques , index) => <li className="text-success" key={index}>{index + 1} : {ques.text} ?</li>)}
         </ul>
-        {questions.length  > 0 && <p>No Questions Ask Yet!!</p>}
+        : <p>No Questions asked Yet</p>
+      }
     </div>
     </div>
   )

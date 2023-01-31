@@ -13,7 +13,7 @@ import Footer from './Footer'
 function Welcome() {
   return (
     <>
-     <Header/>
+    <Header/>
      <div className='container  mt-5'>
      <div className='' style={{display:"flex" , justifyContent:"space-around" , width:"650px" , margin:"auto"}}>
         <Logo/>
@@ -26,7 +26,7 @@ function Welcome() {
       <Question/>
     </div>
     </div>
-    <Footer />
+    <Footer/>
     </>
   )
 }

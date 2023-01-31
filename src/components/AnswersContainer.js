@@ -38,7 +38,8 @@ function Answers() {
     <div className='col-sm-5 bg-light m-2 py-4'>
     <h4 className='text-left m-3' style={{textAlign : "left"}}>Answers</h4>
     <div className='answer-container'>
-      {questiond.map((data , index) => {
+      
+      {questiond.length > 0 ? questiond.map((data , index) => {
         return <div className='content bg-white m-2' key={index} style={{padding : "1rem"}}>
               <div className='user-name' style={userNameStyle}>
                 <div className='user-img text-white bg-danger' style={userImage}>{CapitalWord(data.answerdBy.slice(0 , 1))}</div>
@@ -49,10 +50,9 @@ function Answers() {
                 <p>{CapitalWord(data.answer)}</p>
               </div>
            </div>
-      })
+       })
+       : <p>There is no Answer of any question  to show</p>
       }
-
-     {questiond.length  > 0 && <p>No Answer Ask Yet!!</p>}
      </div>
     </div>
   )
