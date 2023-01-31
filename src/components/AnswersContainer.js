@@ -51,6 +51,8 @@ function Answers() {
            </div>
       })
       }
+
+     {questiond.length  > 0 && <p>No Answer Ask Yet!!</p>}
      </div>
     </div>
   )

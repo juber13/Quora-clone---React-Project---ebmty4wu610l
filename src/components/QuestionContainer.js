@@ -15,6 +15,7 @@ function Question() {
         <ul className=''>
           {questions.map((ques , index) => <li className="text-success" key={index}>{index + 1} : {ques.text} ?</li>)}
         </ul>
+        {questions.length  > 0 && <p>No Questions Ask Yet!!</p>}
     </div>
     </div>
   )
