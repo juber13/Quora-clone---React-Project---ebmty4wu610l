@@ -24,7 +24,7 @@ function Login(props) {
          localStorage.setItem("authenticated" , true);
          navigate('/');
         }else{
-          alert("please sign up first");
+          alert("U are not register with us Please register First");;
           return;
         }
       }

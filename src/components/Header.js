@@ -3,7 +3,7 @@ import Logo from './Logo';
 import LoginBtn from './LoginBtn';
 
 function Header() {
-  const userData = JSON.parse(localStorage.getItem('userData'));
+  const userData = JSON.parse(localStorage.getItem('userData')) || false;
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-danger">
     <div className="container-fluid">
