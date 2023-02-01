@@ -10,7 +10,7 @@ function Footer() {
     <footer className='fixed-bottom bg-danger text-white text-center'>
         <ul className='display-inline'>
             <li>@copy:</li>
-            <li>currentTime :{time}</li>
+            <li>currentTime : {time}</li>
         </ul>
     </footer>
   )

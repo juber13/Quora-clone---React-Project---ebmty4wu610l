@@ -3,7 +3,6 @@ import '../styles/App.css';
 
 import AddAnswer from './AnswerBtn'
 import AddQuestion from './QuestionBtn'
-import LoginBtn from './LoginBtn'
 import Logo from './Logo'
 import SearchBar from './SearchBar'
 import Answers from './AnswersContainer'

@@ -31,7 +31,6 @@ function handleSignUp(e){
   
   useEffect(() => {
     localStorage.setItem('userData' , JSON.stringify(userData));
-  // localStorage.setItem('authenticated' , null);
  },[userData])
 
  const style = {

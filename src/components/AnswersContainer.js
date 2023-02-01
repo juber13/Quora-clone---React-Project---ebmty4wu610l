@@ -1,4 +1,5 @@
-import React ,{useState} from 'react'
+import React ,{useState , useEffect} from 'react'
+
 
 function getQuestionAndAnswerFromLocalStorage(){
   const questionedAndAnswer = localStorage.getItem('questiond');
@@ -10,6 +11,7 @@ function getQuestionAndAnswerFromLocalStorage(){
 function Answers() {
 
   const [questiond , setQuestionAndAnswer] = useState(getQuestionAndAnswerFromLocalStorage());
+  const [filterText , setFilterText] = useState(localStorage.getItem('text'));
 
   const userNameStyle = {
     margin:0,
@@ -34,12 +36,16 @@ function Answers() {
     return string.charAt(0).toUpperCase() + word.slice(1);
   }
 
+  useEffect(() => {
+    getQuestionAndAnswerFromLocalStorage();
+  },[])
+
   return (
     <div className='col-sm-5 bg-light m-2 py-4'>
     <h4 className='text-left m-3' style={{textAlign : "left"}}>Answers</h4>
     <div className='answer-container'>
       
-      {questiond.length > 0 ? questiond.map((data , index) => {
+      {questiond.length > 0 ? questiond.filter((ques) => ques.question.toLowerCase().includes(filterText)).map((data , index) => {
         return <div className='content bg-white m-2' key={index} style={{padding : "1rem"}}>
               <div className='user-name' style={userNameStyle}>
                 <div className='user-img text-white bg-danger' style={userImage}>{CapitalWord(data.answerdBy.slice(0 , 1))}</div>
