@@ -1,15 +1,22 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Logo from './Logo';
 
 function Header() {
+  
+  const logOutUser = () => {
+    console.log("woring");
+  }
+
   const userData = JSON.parse(localStorage.getItem('userData')) || false;
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-danger">
     <div className="container-fluid">
-        <a className="navbar-brand text-white" href="#">Quora Clone</a>
-        <h6 className='text-white'>Welcome {userData.userName}</h6>
-  </div>
-</nav>
+      <h3  className="text-white"style={{fontFamily :"Anton" , letterSpacing : "1px"}}>Quora Clone</h3>
+      <div className='text-right d-flex align-items-center'>
+        <button className='btn btn-sm bg-white text-danger' onClick={logOutUser}>Logout</button>
+    </div>
+    </div>
+  </nav>
   )
 }
 

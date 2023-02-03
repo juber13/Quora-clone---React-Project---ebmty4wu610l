@@ -7,7 +7,7 @@ function getFromLocalStorage(){
   else return [];
 }
 
-function SignUp(props) {
+function SignUp({setFlasmessage}) {
  const navigate = useNavigate();
  const [userName , setUserName] = useState("");
  const [email , setUserEmail] = useState("");
@@ -23,6 +23,7 @@ function handleSignUp(e){
   }
     setUserData({userName , email , password});
     setAuthenticated(true);
+    setFlasmessage(true);
   }
 
   useEffect(() => {

@@ -1,18 +1,12 @@
-import React,{useState , useEffect} from 'react'
+// import React,{useState , useEffect} from 'react'
+// import ExampleText from '../Example';
+// function SearchBar(e) { 
+//  const [filterText , setFilterItems]  = useState('');  
+//  return (
+//    <div className=''>
+//         <input type="text" value={filterText} placeholder='search for questions...'  className='form-control' onChange={(e) => setFilterItems(e.target.value)}/>
+//     </div>
+// )
+// }
 
-function SearchBar(e) { 
- const [filterItems , setFilterItems]  = useState('');
-
-  useEffect(() => {
-    localStorage.setItem('text' , filterItems);
-},[filterItems])
-
-  
- return (
-   <div className=''>
-        <input type="text" value={filterItems} placeholder='search for questions...'  className='form-control' onChange={(e) => setFilterItems(e.target.value)}/>
-    </div>
-  )
-}
-
-export default SearchBar
+// export default SearchBar;

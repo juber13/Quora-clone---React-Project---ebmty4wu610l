@@ -1,5 +1,5 @@
-import React ,{useState , useEffect} from 'react'
-
+import React ,{useState , useEffect , useContext} from 'react'
+import ExampleText from '../Example';
 
 function getQuestionAndAnswerFromLocalStorage(){
   const questionedAndAnswer = localStorage.getItem('questiond');
@@ -7,11 +7,18 @@ function getQuestionAndAnswerFromLocalStorage(){
   else return [];
 }
 
+// function getTextFromLocalStorage(){
+//   const questionedAndAnswer = localStorage.getItem('filter');
+//   if(questionedAndAnswer) localStorage.getItem('filter')
+//   else return "";
+// }
 
-function Answers() {
+
+function Answers({value}) {
 
   const [questiond , setQuestionAndAnswer] = useState(getQuestionAndAnswerFromLocalStorage());
-  const [filterText , setFilterText] = useState(localStorage.getItem('text'));
+  // const [text , setText] =  useContext(ExampleText);
+ 
 
   const userNameStyle = {
     margin:0,
@@ -31,21 +38,29 @@ function Answers() {
     lineHeight : "40px"
   }
 
+  const anserContainer = {
+    height:"65vh",
+    overflow : "scroll",
+    overflowX : "hidden",
+  }
+
   function CapitalWord(string){
     const word = string.toLowerCase();
     return string.charAt(0).toUpperCase() + word.slice(1);
   }
 
-  useEffect(() => {
-    getQuestionAndAnswerFromLocalStorage();
-  },[])
+  function filterItems(items){
+    return items.filter((item) => item.question.toLowerCase().includes(value));
+  }
+
+
 
   return (
-    <div className='col-sm-5 bg-light m-2 py-4'>
+    <div className='col-sm-5 bg-light m-1 py-4' style={anserContainer}>
     <h4 className='text-left m-3' style={{textAlign : "left"}}>Answers</h4>
     <div className='answer-container'>
       
-      {questiond.length > 0 ? questiond.filter((ques) => ques.question.toLowerCase().includes(filterText)).map((data , index) => {
+      {questiond.length > 0 ? filterItems(questiond).map((data , index) => {
         return <div className='content bg-white m-2' key={index} style={{padding : "1rem"}}>
               <div className='user-name' style={userNameStyle}>
                 <div className='user-img text-white bg-danger' style={userImage}>{CapitalWord(data.answerdBy.slice(0 , 1))}</div>
@@ -57,7 +72,7 @@ function Answers() {
               </div>
            </div>
        })
-       : <p>There is no Answer of any question  to show</p>
+       : <p>There is no Answer of any question to show</p>
       }
      </div>
     </div>

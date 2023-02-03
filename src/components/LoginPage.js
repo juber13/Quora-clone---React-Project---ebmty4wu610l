@@ -9,7 +9,7 @@ function getUserDate(){
 }
 
 
-function Login(props) {
+function Login({setFlasmessage}) {
   const navigate = useNavigate();
 
   const [email , setEmail] = useState("");
@@ -23,6 +23,7 @@ function Login(props) {
       if(userData.email == email && userData.password === password){
          localStorage.setItem("authenticated" , true);
          navigate('/');
+         setFlasmessage(true);
         }else{
           alert("U are not register with us Please register First");;
           return;
