@@ -18,18 +18,18 @@ const App = () => {
    
   useEffect(() => {    
     if(authenticated) navigate('/dashboard')
-    else navigate('/login')
-  },[authenticated])
+    else navigate('/')
+  },[])
     
   return (
     <div id="main">
       <Routes>
+          <Route path= "/" element={<Login/>}/>
           <Route path= "/dashboard" element={<Welcome/>}/>
-          <Route path= "/login" element={<Login/>}/>
           <Route path="/register" element={<SignUp />}/>
           <Route path="/add-question" element={<AddQuestion/>} />
           <Route path="/add-answer" element={<AddAnswerPage />} />
-          <Route path='*' element={<NotFound />} />
+          <Route path='/*' element={<NotFound />} />
       </Routes> 
     </div>
   )
