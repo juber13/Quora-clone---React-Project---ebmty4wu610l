@@ -28,7 +28,7 @@ function handleSignUp(e){
   }
 
   useEffect(() => {
-    if(authenticated) navigate('/login');
+    if(authenticated) navigate('/');
   })
   
   useEffect(() => {
