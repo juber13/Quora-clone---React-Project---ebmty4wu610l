@@ -9,9 +9,6 @@ function Header() {
       navigate('/');
   }
 
-  // useEffect(() => {
-  //   localStorage.setItem('authenticated' , authenticated)
-  // },[]);
 
   const userData = JSON.parse(localStorage.getItem('userData')) || false;
   return (

@@ -22,8 +22,7 @@ function Login({setFlasmessage}) {
     e.preventDefault();
       if(userData.email == email && userData.password === password){
          localStorage.setItem("authenticated" , true);
-         navigate('/');
-         setFlasmessage(true);
+         navigate('/dashboard');
         }else{
           alert("U are not register with us Please register First");;
           return;
