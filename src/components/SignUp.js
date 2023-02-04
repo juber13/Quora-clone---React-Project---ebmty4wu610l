@@ -1,5 +1,6 @@
 import React,{useState , useEffect} from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import '../styles/common.css'
 
 function getFromLocalStorage(){
   const data = localStorage.getItem('userData');
@@ -34,13 +35,10 @@ function handleSignUp(e){
     localStorage.setItem('userData' , JSON.stringify(userData));
  },[userData])
 
- const style = {
-  display : 'flex',
-  alignItems:"center",
-  justifyContent : "center",
-}
+
   return (
-     <div className="container my-5 card" style={style}>
+    <div className="wrapper signUp-wrapper">
+     <div className="container card">
      <div className="heading text-center">
         <h2 style={{fontFamily :"Anton" , letterSpacing : "1px"}} className="text-danger">Quora</h2>
         <p>A place to share knowledge and better understand the world</p>
@@ -62,13 +60,13 @@ function handleSignUp(e){
             <div className="form-group">
                 <button type="submit" className="btn btn-primary">Sign Up</button>
                 <br />
-
             </div>
             </form>
             <span role="button" className="text-primary" onClick={() =>  navigate('/login')}>Already A User..</span>
        </div>
      </div>
     </div>
+  </div>
   );
 }
 

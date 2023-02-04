@@ -6,7 +6,6 @@
     margin-top: 3rem;
 }
 
-
 .form-group{
     margin: 1rem;
 }
@@ -23,3 +22,14 @@ h5{
 span{
     margin-left: 1rem;
 }
+
+.login-wrapper , .signUp-wrapper{
+    width:100%;
+    height:100vh;
+    display : flex;
+    align-items:center;
+    justify-content : center;
+    background-image: url('../images/pngfind.com-quora-logo-png-4204357.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }

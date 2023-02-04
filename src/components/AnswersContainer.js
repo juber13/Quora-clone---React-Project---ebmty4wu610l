@@ -1,5 +1,4 @@
 import React ,{useState , useEffect , useContext} from 'react'
-import ExampleText from '../Example';
 
 function getQuestionAndAnswerFromLocalStorage(){
   const questionedAndAnswer = localStorage.getItem('questiond');
@@ -7,18 +6,10 @@ function getQuestionAndAnswerFromLocalStorage(){
   else return [];
 }
 
-// function getTextFromLocalStorage(){
-//   const questionedAndAnswer = localStorage.getItem('filter');
-//   if(questionedAndAnswer) localStorage.getItem('filter')
-//   else return "";
-// }
-
 
 function Answers({value}) {
 
-  const [questiond , setQuestionAndAnswer] = useState(getQuestionAndAnswerFromLocalStorage());
-  // const [text , setText] =  useContext(ExampleText);
- 
+  const [questiond , setQuestionAndAnswer] = useState(getQuestionAndAnswerFromLocalStorage()); 
 
   const userNameStyle = {
     margin:0,
@@ -38,11 +29,13 @@ function Answers({value}) {
     lineHeight : "40px"
   }
 
-  const anserContainer = {
+  const answerContainer = {
     height:"65vh",
     overflow : "scroll",
     overflowX : "hidden",
   }
+
+
 
   function CapitalWord(string){
     const word = string.toLowerCase();
@@ -56,7 +49,7 @@ function Answers({value}) {
 
 
   return (
-    <div className='col-sm-5 bg-light m-1 py-4' style={anserContainer}>
+    <div className='col-sm-5 bg-light m-1 py-4' style={answerContainer} id="answer">
     <h4 className='text-left m-3' style={{textAlign : "left"}}>Answers</h4>
     <div className='answer-container'>
       

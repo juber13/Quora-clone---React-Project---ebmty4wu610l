@@ -1,4 +1,4 @@
-import React,{useState , useEffect , createContext} from 'react'
+import React,{useState , useEffect} from 'react'
 import {Routes , Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,6 @@ import AddAnswerPage from './AddAnswerPage';
 import AddQuestion from './AddQuestionPage';
 import Welcome from './Welcome';
 import NotFound from './NotFound';
-import ExampleText from '../Example';
 
 
 

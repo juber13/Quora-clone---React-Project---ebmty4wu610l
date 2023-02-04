@@ -1,6 +1,6 @@
-import React,{useEffect, useState} from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import '../styles/login.css'
+import React,{ useState} from "react";
+import { useNavigate } from "react-router-dom";
+import '../styles/common.css'
 
 function getUserDate(){
   const userDate = localStorage.getItem('userData');
@@ -30,17 +30,15 @@ function Login({setFlasmessage}) {
         }
       }
  
- const style = {
-  display : 'flex',
-  alignItems:"center",
-  justifyContent : "center",
-}
+ 
 
   return (
-     <div className="container card" style={style}>
+     <div className="wrapper login-wrapper">
+
+     <div className="container card">
      <div className="heading text-center">
         <h1  className="text-danger"style={{fontFamily :"Anton" , letterSpacing : "1px"}}>Quora</h1>
-        <p style={{}}>A place to share knowledge and better understand the world</p>
+        <p>A place to share knowledge and better understand the world</p>
      </div>
      <div className="login-container container my-5  row">
        <div className="col-md-12 pt-3">
@@ -61,6 +59,7 @@ function Login({setFlasmessage}) {
        </div>
      </div>
     </div>
+  </div>
   );
 }
 
