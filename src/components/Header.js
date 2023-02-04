@@ -1,11 +1,17 @@
 import React,{useEffect, useState} from 'react'
-import Logo from './Logo';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
-  
+  const [authenticated , setAuthenticated] = useState(localStorage.getItem("authenticated"));
+  const navigate = useNavigate();
   const logOutUser = () => {
-    console.log("woring");
+      localStorage.removeItem("authenticated");
+      navigate('/login');
   }
+
+  // useEffect(() => {
+  //   localStorage.setItem('authenticated' , authenticated)
+  // },[]);
 
   const userData = JSON.parse(localStorage.getItem('userData')) || false;
   return (

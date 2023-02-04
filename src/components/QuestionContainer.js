@@ -10,7 +10,7 @@ function Question() {
   const [questions , setQuestion] = useState(getFromLocalStorage());
   return (
     <div className='col-sm-6 bg-light m-2 py-5'>
-     <h4>Question List</h4>
+     <h4 className='text-success text-left'>Questions List</h4>
      <div className='question-list'>
       { questions.length > 0 ? 
         <ul className=''>

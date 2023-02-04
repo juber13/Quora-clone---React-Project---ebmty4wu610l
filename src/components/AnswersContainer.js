@@ -50,7 +50,7 @@ function Answers({value}) {
 
   return (
     <div className='col-sm-5 bg-light m-1 py-4' style={answerContainer} id="answer">
-    <h4 className='text-left m-3' style={{textAlign : "left"}}>Answers</h4>
+    <h4 className='text-left m-3 text-danger' style={{textAlign : "left"}}>Answers</h4>
     <div className='answer-container'>
       
       {questiond.length > 0 ? filterItems(questiond).map((data , index) => {
