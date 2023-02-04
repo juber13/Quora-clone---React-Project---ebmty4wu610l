@@ -15,7 +15,6 @@ import NotFound from './NotFound';
 const App = () => {
   const navigate = useNavigate();
   const [authenticated, setauthenticated] = useState(localStorage.getItem('authenticated'));
-  const [flashMessage , setFlasmessage] = useState(false);
    
   useEffect(() => {    
     if(authenticated) navigate('/')
@@ -23,18 +22,16 @@ const App = () => {
   },[])
     
   return (
-    // <ExampleText.Provider value="econd">
     <div id="main">
       <Routes>
-          <Route path= "/" element={<Welcome flashMessage={flashMessage}/>}/>
-          <Route path= "/login" element={<Login setFlasmessage={setFlasmessage}/>}/>
-          <Route path="/register" element={<SignUp setFlasmessage={setFlasmessage}/>}/>
+          <Route path= "/" element={<Welcome/>}/>
+          <Route path= "/login" element={<Login/>}/>
+          <Route path="/register" element={<SignUp />}/>
           <Route path="/add-question" element={<AddQuestion/>} />
           <Route path="/add-answer" element={<AddAnswerPage />} />
-          <Route path='*' element={<NotFound />} />
+          {/* <Route path='*' element={<NotFound />} /> */}
       </Routes> 
     </div>
-    // </ExampleText.Provider>
   )
 }
 
