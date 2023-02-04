@@ -14,22 +14,22 @@ import NotFound from './NotFound';
 
 const App = () => {
   const navigate = useNavigate();
-  const [authenticated, setauthenticated] = useState(localStorage.getItem('authenticated'));
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem('authenticated'));
    
   useEffect(() => {    
-    if(authenticated) navigate('/')
+    if(authenticated) navigate('/dashboard')
     else navigate('/login')
-  },[])
+  },[authenticated])
     
   return (
     <div id="main">
       <Routes>
-          <Route path= "/" element={<Welcome/>}/>
+          <Route path= "/dashboard" element={<Welcome/>}/>
           <Route path= "/login" element={<Login/>}/>
           <Route path="/register" element={<SignUp />}/>
           <Route path="/add-question" element={<AddQuestion/>} />
           <Route path="/add-answer" element={<AddAnswerPage />} />
-          {/* <Route path='*' element={<NotFound />} /> */}
+          <Route path='*' element={<NotFound />} />
       </Routes> 
     </div>
   )
