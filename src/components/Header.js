@@ -6,7 +6,7 @@ function Header() {
   const navigate = useNavigate();
   const logOutUser = () => {
       localStorage.removeItem("authenticated");
-      navigate('/login');
+      navigate('/');
   }
 
   // useEffect(() => {

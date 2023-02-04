@@ -62,7 +62,7 @@ function handleSignUp(e){
                 <br />
             </div>
             </form>
-            <span role="button" className="text-primary" onClick={() =>  navigate('/login')}>Already A User..</span>
+            <span role="button" className="text-primary" onClick={() =>  navigate('/')}>Already A User..</span>
        </div>
      </div>
     </div>
