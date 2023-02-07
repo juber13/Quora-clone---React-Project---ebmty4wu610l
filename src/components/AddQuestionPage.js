@@ -17,7 +17,7 @@ function AddQuestion() {
   const navigate = useNavigate();
 
   const addQuestion = () => {
-    if (inputValue === "") {
+    if (inputValue === "" || inputValue == null) {
       alert("Please Add Question");
       return;
     } else {
@@ -46,6 +46,7 @@ function AddQuestion() {
             value={inputValue}
             className="form-control"
             id="exampleFormControlTextarea1"
+            placeholder="Write something...."
             rows="13"
             cols="10"
             onChange={(e) => setValue(e.target.value)}

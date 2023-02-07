@@ -19,6 +19,7 @@ function getQuestionAndAnswerFromLocalStorage() {
 
 function AddAnswerPage() {
   const [questions, setQuestion] = useState(getQuestionFromLocalStorage());
+  const [isAnswerd , setIsAnsswerd] = useState(false)
   const [questionedAndAnswer, setQuestionAndAnswer] = useState(
     getQuestionAndAnswerFromLocalStorage()
   );
@@ -52,15 +53,16 @@ function AddAnswerPage() {
   }, [questionedAndAnswer]);
 
   const updateQuestion = (index) => {
-    setSelectedQuestion(questions[index].text);
+    // setSelectedQuestion(questions[index].text);
     const ques = [...questions];
     ques[index].status = true;
-    setQuestion(ques);
+    console.log(ques);
+    // setQuestion(ques);
   };
 
-  useEffect(() => {
-    localStorage.setItem("question", JSON.stringify(questions));
-  });
+  // useEffect(() => {
+  //   localStorage.setItem("question", JSON.stringify(questions));
+  // },[questions]);
 
   const container = {
     paddingTop: "10px",
@@ -102,7 +104,7 @@ function AddAnswerPage() {
               value={inputVal}
               onChange={(e) => setInputval(e.target.value)}
               className="form-control"
-              placeholder={SelectedQuestion}
+              placeholder="Add your answer..."
               id="exampleFormControlTextarea1"
               rows="15"
               cols="15"
