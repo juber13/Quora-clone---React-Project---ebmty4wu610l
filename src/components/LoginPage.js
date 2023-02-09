@@ -16,18 +16,23 @@ function Login({setFlasmessage}) {
   const [password , setPassword] = useState("");
   const [userData , setUserData] = useState(getUserDate());  
   const [authenticated , setAuthenticated] = useState(localStorage.getItem('userData') || false);
+  const [loggedUserName , setLoggedUserName] = useState("");
 
 
   function handleLogin(e){
     e.preventDefault();
+    // for(var  i = 0; i < userData.length; i++){
+        // console.log(userData[i].email);
       if(userData.email == email && userData.password === password){
-         localStorage.setItem("authenticated" , true);
-         navigate('/dashboard');
-        }else{
-          alert("U are not register with us Please register First");;
-          return;
-        }
+        localStorage.setItem("authenticated" , true);
+        navigate('/dashboard');
+        // return;
+      }else{
+        alert("U are not register with us Please register First");;
+        return;
       }
+    // }
+  }
  
  
 

@@ -51,7 +51,7 @@ function AddQuestion() {
             cols="10"
             onChange={(e) => setValue(e.target.value)}
           ></textarea>
-          <Link to="/">
+          <Link to="/dashboard">
             <button className="btn btn-danger m-2">Cancel</button>
           </Link>
           <button className="btn btn-danger" onClick={addQuestion}>

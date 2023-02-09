@@ -22,9 +22,8 @@ function handleSignUp(e){
     alert("Plese Enter values");
     return;
   }
-    setUserData({userName , email , password});
+    setUserData({userName , email , password})
     setAuthenticated(true);
-    setFlasmessage(true);
   }
 
   useEffect(() => {

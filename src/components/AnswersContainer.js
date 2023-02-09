@@ -36,11 +36,18 @@ function Answers({value}) {
   }
 
 
+    function CapitalWord(string){
+      if(string){
+        const word = string?.toLowerCase();
+        return string?.charAt(0).toUpperCase() + word.slice(1);
+      }
 
-  function CapitalWord(string){
-    const word = string.toLowerCase();
-    return string.charAt(0).toUpperCase() + word.slice(1);
-  }
+      return "";
+    }
+
+    useEffect(() => {
+      getQuestionAndAnswerFromLocalStorage();
+    },[questiond])
 
   function filterItems(items){
     return items.filter((item) => item.question.toLowerCase().includes(value));

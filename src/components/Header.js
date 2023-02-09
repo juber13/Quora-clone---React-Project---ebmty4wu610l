@@ -17,6 +17,7 @@ function Header() {
       <h3  className="text-white"style={{fontFamily :"Anton" , letterSpacing : "1px"}}>Quora Clone</h3>
       <div className='text-right d-flex align-items-center'>
         <button className='btn btn-sm bg-white text-danger' onClick={logOutUser}>Logout</button>
+        
     </div>
     </div>
   </nav>

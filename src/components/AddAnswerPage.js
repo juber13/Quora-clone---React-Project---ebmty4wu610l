@@ -19,50 +19,66 @@ function getQuestionAndAnswerFromLocalStorage() {
 
 function AddAnswerPage() {
   const [questions, setQuestion] = useState(getQuestionFromLocalStorage());
-  const [isAnswerd , setIsAnsswerd] = useState(false)
   const [questionedAndAnswer, setQuestionAndAnswer] = useState(
     getQuestionAndAnswerFromLocalStorage()
   );
-  const [SelectedQuestion, setSelectedQuestion] = useState();
+  const [SelectedQuestion, setSelectedQuestion] = useState("");
   const [inputVal, setInputval] = useState("");
+  const [questionIndex , setQuestionIndex] = useState();
+  const [isSelected , setIsSelected] = useState(false);
   const navigate = useNavigate();
 
+  // update question here....
+  
+
+  // handle on change
+  const handleOnChange = (e) => {
+    setQuestionIndex(parseInt(e.target.dataset.index));
+    setSelectedQuestion(e.target.innerText);
+    setIsSelected(true);
+  }
+
+  const updateQuestion = () => {
+    const ques = [...questions];
+    ques[questionIndex].status = true;
+    setQuestion(ques);
+    setIsSelected(false);
+};
+
+useEffect(() => {
+  localStorage.setItem('question' , JSON.stringify(questions));
+},[questions]);
+
+   // add answers
   function addAnswer() {
-    if (inputVal === "" || !SelectedQuestion) {
+    if (inputVal === "" || !isSelected) {
       alert("First select question then Add Answer");
       return;
     } else {
       setQuestionAndAnswer([
         ...questionedAndAnswer,
         {
-          id: Math.floor(Math.random() + 1 * 100),
-          answerdBy:JSON.parse(localStorage.getItem("userData")).userName || false,
-          questionedBy: questionedAndAnswer.answerdBy,
           question: SelectedQuestion,
           answer: inputVal,
+          questionedBy: questionedAndAnswer.answerdBy,
+          id: Math.floor(Math.random() + 1 * 100),
+          answerdBy:JSON.parse(localStorage.getItem("userData")).userName || false,
         },
       ]);
-    }
 
+      updateQuestion();
+    }
+    
     setSelectedQuestion("");
     setInputval("");
+    updateQuestion();
   }
 
+ 
+  
   useEffect(() => {
     localStorage.setItem("questiond", JSON.stringify(questionedAndAnswer));
   }, [questionedAndAnswer]);
-
-  const updateQuestion = (index) => {
-    // setSelectedQuestion(questions[index].text);
-    const ques = [...questions];
-    ques[index].status = true;
-    console.log(ques);
-    // setQuestion(ques);
-  };
-
-  // useEffect(() => {
-  //   localStorage.setItem("question", JSON.stringify(questions));
-  // },[questions]);
 
   const container = {
     paddingTop: "10px",
@@ -82,7 +98,8 @@ function AddAnswerPage() {
                 (ques, index) =>
                   ques.status != true && (
                     <li
-                      onClick={() => updateQuestion(index)}
+                      data-index={index}
+                      onClick={(e) => handleOnChange(e)}
                       key={index}
                       className="select-question"
                       role="button">
@@ -109,7 +126,7 @@ function AddAnswerPage() {
               rows="15"
               cols="15"
             ></textarea>
-            <Link to="/">
+            <Link to="/dashboard">
               <button className="btn btn-danger m-2">Cancel</button>
             </Link>
             <button className="btn btn-danger" onClick={addAnswer}>
