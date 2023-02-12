@@ -14,7 +14,6 @@ function getFromLocalStorage() {
 function AddQuestion() {
   const [questions, setQuestion] = useState(getFromLocalStorage());
   const [inputValue, setValue] = useState();
-  const navigate = useNavigate();
 
   const addQuestion = () => {
     if (inputValue === "" || inputValue == null) {

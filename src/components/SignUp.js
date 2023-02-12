@@ -8,7 +8,7 @@ function getFromLocalStorage(){
   else return [];
 }
 
-function SignUp({setFlasmessage}) {
+function SignUp() {
  const navigate = useNavigate();
  const [userName , setUserName] = useState("");
  const [email , setUserEmail] = useState("");

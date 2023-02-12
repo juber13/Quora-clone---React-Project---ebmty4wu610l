@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
+
+// get question from local storage
 function getQuestionFromLocalStorage() {
   const items = localStorage.getItem("question");
   if (items) return JSON.parse(localStorage.getItem("question"));
@@ -26,7 +28,6 @@ function AddAnswerPage() {
   const [inputVal, setInputval] = useState("");
   const [questionIndex , setQuestionIndex] = useState();
   const [isSelected , setIsSelected] = useState(false);
-  const navigate = useNavigate();
 
   // update question here....
   
